@@ -1,22 +1,14 @@
-
-function Layout() {
+function LoginPage() {
     return (
         <div>
-        <div>
-            <Header/>
-        </div>
-        <div>
-            <h1>Please log in!</h1>
-             <form action="" className="login-form">
+            <form action="">
                 <label htmlFor="username">Username</label>
                 <input type="text" />
                 <label htmlFor="password">Password</label>
                 <input type="password" />
-                <button>Log in</button>
             </form>
-        </div>
         </div>
     )
 }
 
-export default Layout
+export default LoginPage;
