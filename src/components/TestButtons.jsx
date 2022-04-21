@@ -1,12 +1,10 @@
 function TestButtons() {
-    return (
-        <div>
-
-            <button>POSTS</button>
-            <button>ADMIN</button>
-        </div>
-    )
-
+  return (
+    <div className="button-div">
+      <button>POSTS</button>
+      <button>ADMIN</button>
+    </div>
+  );
 }
 
-export default TestButtons
+export default TestButtons;
