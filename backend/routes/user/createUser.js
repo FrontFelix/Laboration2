@@ -4,7 +4,7 @@ const createUser = require('../../functions/user/createUser')
 
 
 router.post('/user', async (req, res) => {
-    await createUser()
+    await createUser('habibi')
     res.send('Ny user tillagd')
 })
 

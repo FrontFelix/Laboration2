@@ -2,6 +2,18 @@ GET http://localhost:8080/test
 
 ###
 
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "name": "Adam",
+    "password": "habibi"
+}
+
+
+###
+
 POST http://localhost:8080/register
 ###
 
@@ -16,3 +28,6 @@ DELETE http://localhost:8080/user
 POST http://localhost:8080/post
 ###
 DELETE http://localhost:8080/post
+###
+
+GET http://localhost:8080/users
