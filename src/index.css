@@ -48,3 +48,12 @@ code {
 .header-title {
   color: #1d9bf0;
 }
+
+.test-post {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
