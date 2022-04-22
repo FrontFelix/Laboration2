@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header.jsx";
 import LoginPage from "./LoginPage.jsx";
@@ -5,7 +6,7 @@ import TestButtons from "./TestButtons.jsx";
 import StartPage from "./StartPage.jsx"
 import AdminPage from "./AdminPage.jsx";
 import PostsPage from "./PostsPage.jsx";
-
+import TestPage from "./TestPage.tsx
 function Layout() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function Layout() {
           <Route path="/login" element={ <LoginPage />}/>
           <Route path="/admin" element={ <AdminPage />}/>
           <Route path="/posts" element={ <PostsPage />}/>
+          <Route path="/testpage" element={ <TestPage />}/>
         </Routes>
       </div>
     </BrowserRouter>
