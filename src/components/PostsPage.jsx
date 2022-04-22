@@ -1,5 +1,5 @@
 import getPosts from "./pappasTest/getPostsTest";
-import OutlinedCard from "./Post";
+import { PostCard } from "./Post";
 import React, { useState, useEffect } from "react";
 
 function PostsPage() {
@@ -18,12 +18,12 @@ function PostsPage() {
       <div className="test-post">
         <div>Christian</div>
         <div>Hej, idag åt jag röv och även lite godis.</div>
-        {posts.map((post, index) => (
-          <div key={index}>
-            <OutlinedCard />
-          </div>
-        ))}
       </div>
+      {posts.map((post, index) => (
+        <div key={index}>
+          <PostCard post={post} />
+        </div>
+      ))}
     </div>
   );
 }
