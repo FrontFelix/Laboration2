@@ -1,9 +1,9 @@
 function StartPage() {
-  return <div>
-    Go to login 
-    <button>
-    </button>
-  </div>;
+  return (
+    <div>
+      <button>LOGIN</button>
+    </div>
+  );
 }
 
 export default StartPage;
