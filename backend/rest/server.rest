@@ -29,6 +29,10 @@ POST http://localhost:8080/user
 DELETE http://localhost:8080/user
 ###
 
+//Hämtar alla posts
+GET http://localhost:8080/posts
+###
+
 //Lägger till post
 POST http://localhost:8080/post
 ###
@@ -36,4 +40,5 @@ POST http://localhost:8080/post
 //Tar bort post
 DELETE http://localhost:8080/post
 ###
+
 
