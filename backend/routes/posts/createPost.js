@@ -12,9 +12,9 @@ router.post("/post", async (req, res) => {
   await mongoose.connect("mongodb://localhost:27017/mydb");
 
   const newPost = new postModel({
-    postTitle: "2nd post",
+    postTitle: req.body.title,
     author: "PappaHepsever",
-    content: "I onsdags var det 420, de va gött",
+    content: req.body.content,
   });
 
   await newPost.save();
