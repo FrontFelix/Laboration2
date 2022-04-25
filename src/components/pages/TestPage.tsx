@@ -1,8 +1,8 @@
 import { CSSProperties } from "react";
-import getUsers from "./pappasTest/getUsersTest";
-import getPosts from "./pappasTest/getPostsTest";
-import HandleAddNewPost from "./pappasTest/addNewPostTest";
-import HandleAddNewUser from "./pappasTest/addNewUserTest";
+import getUsers from "../pappasTest/getUsersTest";
+import getPosts from "../pappasTest/getPostsTest";
+import HandleAddNewPost from "../pappasTest/addNewPostTest";
+import HandleAddNewUser from "../pappasTest/addNewUserTest";
 
 function TestPage() {
   return (

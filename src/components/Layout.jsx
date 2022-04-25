@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header.jsx";
-import LoginPage from "./LoginPage.jsx";
+import LoginPage from "./pages/LoginPage";
 import TestButtons from "./TestButtons.jsx";
-import StartPage from "./StartPage.jsx";
-import AdminPage from "./AdminPage.jsx";
-import PostsPage from "./PostsPage.jsx";
-import TestPage from "./TestPage.tsx";
+import StartPage from "./pages/StartPage.jsx";
+import AdminPage from "./pages/AdminPage.jsx";
+import PostsPage from "./pages/PostsPage.jsx";
+import TestPage from "./pages/TestPage.tsx";
 
 function Layout() {
   return (

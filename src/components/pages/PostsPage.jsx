@@ -1,7 +1,7 @@
-import getPosts from "./pappasTest/getPostsTest";
-import { PostCard } from "./Post";
+import getPosts from "../pappasTest/getPostsTest";
+import { PostCard } from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
-import { CreateNewPost } from "./CreateNewPost";
+import { CreateNewPost } from "../posts/CreateNewPost";
 
 function PostsPage() {
   let [posts, setPosts] = useState([]);
@@ -21,11 +21,13 @@ function PostsPage() {
       <div>
         <CreateNewPost />
       </div>
-      {posts.map((post, index) => (
-        <div key={index}>
-          <PostCard post={post} />
-        </div>
-      ))}
+      <div className="postsContainer">
+        {posts.map((post, index) => (
+          <div key={index}>
+            <PostCard post={post} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import HandleAddNewPost from "./pappasTest/addNewPostTest";
+import HandleAddNewPost from "../pappasTest/addNewPostTest";
+import TextField from "@mui/material/TextField";
 
 const style = {
   position: "absolute",
@@ -22,7 +23,9 @@ export function CreateNewPost() {
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen}>Create new post</Button>
+      <Button variant="contained" onClick={handleOpen}>
+        Create new post
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -30,23 +33,30 @@ export function CreateNewPost() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            align="center"
+          >
             Add new post
           </Typography>
           <form
             className="createNewPostStyle"
             id="addNewPostForm"
-            onSubmit={(HandleAddNewPost, handleClose)}
+            onSubmit={HandleAddNewPost}
+            // onSubmit={(HandleAddNewPost, handleClose)}
           >
             <label htmlFor="postTitle">Title</label>
-            <input type="text" name="title" id="titleInput" required />
-
+            <TextField id="titleInput" variant="standard" />
             <label htmlFor="postContent">Content</label>
-            <input type="text" name="content" id="contentInput" required />
-            {/* <button type="submit" id="submitPostButton">
-              Add post
-            </button> */}
-            <Button type="submit" id="submitPostButton" variant="contained">
+            <TextField
+              id="contentInput"
+              variant="outlined"
+              multiline
+              maxRows={10}
+            />
+            <Button type="submit" variant="contained">
               Submit new post
             </Button>
           </form>
