@@ -57,3 +57,34 @@ code {
   flex-direction: column;
   justify-content: space-around;
 }
+
+.postsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.post {
+  border: 1px solid black;
+  margin: 0.5rem;
+  width: 17rem;
+}
+
+.createNewPostStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.css-1kgxqm0-MuiTypography-root {
+  margin-bottom: 2rem !important;
+}
+
+.css-e784if-MuiTypography-root {
+  overflow-wrap: break-word !important;
+}
+
+.css-ag7rrr-MuiTypography-root {
+  overflow-wrap: break-word !important;
+}
