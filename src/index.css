@@ -57,3 +57,8 @@ code {
   flex-direction: column;
   justify-content: space-around;
 }
+
+.postContainer {
+  border: 1px solid black;
+  margin: 0.5rem;
+}
