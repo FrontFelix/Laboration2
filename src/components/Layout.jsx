@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header.jsx";
 import LoginPage from "./pages/LoginPage";
@@ -11,14 +12,15 @@ function Layout() {
   return (
     <BrowserRouter>
       <Header />
+      <TestButtons />
       <div className="layout-div">
-        <TestButtons />
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/posts" element={<PostsPage />} />
-          <Route path="/testpage" element={<TestPage />} />
+          <Route path="/testPage" element={<TestPage />} />
         </Routes>
       </div>
     </BrowserRouter>
