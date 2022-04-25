@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 const mongoose = require("mongoose");
 const postModel = require("../../models/posts/postModel");
 const uuid = require('uuid')
@@ -19,9 +19,9 @@ router.post("/post", async (req, res) => {
     content: "wurr",
   });
 
-    await newPost.save();
+  await newPost.save();
 
-    res.send('Ny post tillagd')
-})
+  res.send("Ny post tillagd");
+});
 
-module.exports = router
+module.exports = router;
