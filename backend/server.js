@@ -29,7 +29,7 @@ let createPostRouter = require("./routes/posts/createPost");
 let deletePostRouter = require("./routes/posts/deletePost");
 let deleteUserRouter = require("./routes/user/deleteUser");
 let getUsersRouter = require("./routes/user/getUsers");
-let getPostsRouter = require("./routes/posts/getPosts");
+// let getPostsRouter = require("./routes/posts/getPosts");
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
@@ -59,7 +59,7 @@ app.use(loginRouter)
 app.use(createPostRouter)
 app.use(deletePostRouter)
 app.use(deleteUserRouter)
-app.use(getUsersRouter)
+// app.use(getUsersRouter)
 // ROUTES
 
 app.get('/test', async (req, res) => {

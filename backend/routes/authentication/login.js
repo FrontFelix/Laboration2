@@ -11,8 +11,9 @@ router.post('/login', async (req, res) => {
     users.find({username: req.body.name}).then(async function (user) {
         if(!user[0] || !await bcrypt.compare(req.body.password, user[0].userPassword)) return res.status(401).send('Wrong username orr password')
         req.session.user = user[0]
+        req.session
         console.log("inloggad")
-        console.log(user[0])
+        console.log(req.session)
         return res.send('Finns användare och lösenord stämmer')
         });
     
