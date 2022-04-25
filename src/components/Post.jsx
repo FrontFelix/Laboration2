@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 
 export const PostCard = ({ post }) => {
   return (
-    <div class="postContainer">
+    <div className="postContainer">
       <React.Fragment>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
