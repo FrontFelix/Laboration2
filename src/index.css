@@ -28,6 +28,10 @@ code {
 }
 
 .button-div {
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -43,10 +47,41 @@ code {
   background-color: black;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-divs {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-title {
   color: #1d9bf0;
+  text-decoration: none;
+}
+
+.ptag {
+  font-size: 5rem;
+  rotate: 45deg;
+  font-weight: bold;
+  transform: translateY(-10%);
+}
+
+span {
+  color: #1d9bf0;
+  text-decoration: none;
+}
+
+.link-style {
+  text-decoration: none;
+}
+
+.header-title {
+  text-decoration: none;
 }
 
 .test-post {

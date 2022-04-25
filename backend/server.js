@@ -3,13 +3,14 @@ const app = express();
 const port = 8080;
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
+let cors = require("cors");
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://0.0.0.0:27017/mydb";
 app.use(express.json());
-let cors = require("cors");
 app.use(
   cors({
     origin: ["http://localhost:3000"],
+    credentials: true,
   })
 );
 
