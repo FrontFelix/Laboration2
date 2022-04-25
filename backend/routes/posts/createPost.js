@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const postModel = require("../../models/posts/postModel");
+const uuid = require('uuid')
 
 // createUser().catch((err) => console.log(err));
 
@@ -10,11 +11,12 @@ const postModel = require("../../models/posts/postModel");
 
 router.post("/post", async (req, res) => {
   await mongoose.connect("mongodb://localhost:27017/mydb");
-
+  req.session.id = uuid.v4()
+  console.log(req.session)
   const newPost = new postModel({
-    postTitle: req.body.title,
+    postTitle: "wurr",
     author: "PappaHepsever",
-    content: req.body.content,
+    content: "wurr",
   });
 
   await newPost.save();
