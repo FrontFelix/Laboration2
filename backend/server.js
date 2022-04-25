@@ -7,10 +7,10 @@ let cors = require("cors");
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://0.0.0.0:27017/mydb";
 app.use(express.json());
-let cors = require("cors");
 app.use(
   cors({
     origin: ["http://localhost:3000"],
+    credentials: true,
   })
 );
 

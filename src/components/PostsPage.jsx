@@ -1,8 +1,10 @@
 import getPosts from "./pappasTest/getPostsTest";
+import Cookies from "js-cookie"
 import { PostCard } from "./Post";
 import React, { useState, useEffect } from "react";
 
 function PostsPage() {
+  console.log(Cookies.get('session'))
   let [posts, setPosts] = useState([]);
 
   useEffect(() => {
