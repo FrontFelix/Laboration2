@@ -12,6 +12,9 @@ function TestButtons() {
       <Link to={"/login"}>
         <button>LOGIN</button>
       </Link>
+      <Link to={"/register"}>
+        <button>REGISTER</button>
+      </Link>
       <Link to={"/testpage"}>
         <button>TESTPAGE</button>
       </Link>

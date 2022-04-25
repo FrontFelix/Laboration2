@@ -10,7 +10,7 @@ function PostsPage() {
       let data = await getPosts();
       setPosts(data);
     }
-    fetchFunction();
+    // fetchFunction();
   });
   return (
     <div>
