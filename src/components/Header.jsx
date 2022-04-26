@@ -8,20 +8,20 @@ function Header() {
 
   // const [user, setUser] = useState({})
 
-  // useEffect(() => {
-  //   async function getLogin() {
-  //     let response = await fetch("http://localhost:8080/login", { method: "GET", credentials: "include", })
-  //     let data = await response
-  //     console.log(JSON.stringify(data))
-  //   }
-  //   getLogin()
-  // })
+  useEffect(() => {
+    async function getLogin() {
+      let response = await fetch("http://localhost:8080/login", { method: "GET" })
+      let data = await response.json()
+      // console.log(data)
+    }
+    getLogin()
+  })
 
   return (
     <div className="header-div">
       <div className="header-divs">
         <Link className="link-style" to={"/"}>
-          <div className="header-title ptag ">K</div>
+          <div className="header-title header-logo">K</div>
         </Link>
       </div>
       <div className="header-divs">

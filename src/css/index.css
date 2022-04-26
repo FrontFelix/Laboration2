@@ -8,6 +8,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 code {
@@ -68,11 +69,15 @@ code {
   text-decoration: none;
 }
 
-.ptag {
+.header-logo {
   font-size: 5rem;
   rotate: 45deg;
   font-weight: bold;
   transform: translateY(-10%);
+}
+.header-logo:hover {
+  color: white;
+  animation: rotate(360deg) 2s linear infinite;
 }
 
 span {
@@ -102,20 +107,23 @@ span {
 .posts-page {
   display: flex;
   width: 80%;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
 .postsContainer {
   display: flex;
+  width: 30rem;
   align-items: center;
   flex-direction: column;
+  border: .5px solid grey;
+  
 }
 
 .post {
-  border: 1px solid black;
-  margin: 0.5rem;
-  width: 17rem;
+  border-bottom: .5px solid grey;
+  width: 30rem;
+  position: relative;
 }
 
 .createNewPostStyle {
@@ -158,4 +166,15 @@ span {
 .post-container {
   display: flex;
   gap: 1rem;
+}
+
+.DENNA {
+  position: absolute; 
+  top: 0;
+  right: 0;
+  font-size: .1rem;
+}
+
+.delDots {
+  font-size: x-small;
 }

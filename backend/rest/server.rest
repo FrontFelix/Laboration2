@@ -41,7 +41,7 @@ POST http://localhost:8080/post
 DELETE http://localhost:8080/post
 ###
 
-
+//Hämtar inloggade användaren
 GET http://localhost:8080/login
 
 
