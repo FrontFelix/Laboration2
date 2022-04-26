@@ -1,4 +1,6 @@
 import loginUser from "../pappasTest/loginUser";
+import Button from "@mui/material/Button";
+
 function LoginPage() {
   return (
     <div>
@@ -7,7 +9,7 @@ function LoginPage() {
         <input id="userUsername" type="text" />
         <label htmlFor="password">Password</label>
         <input id="userPassword" type="password" />
-        <button>Log in</button>
+        <Button type="submit" variant="contained">Log in</Button>        
       </form>
     </div>
   );

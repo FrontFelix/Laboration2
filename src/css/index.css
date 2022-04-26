@@ -18,20 +18,22 @@ code {
 #root {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .layout-div {
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
+  align-items: centeR;
   gap: 5rem;
 }
 
 .button-div {
-  position: absolute;
-  top: 10rem;
+  /* position: absolute;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -43,7 +45,8 @@ code {
 
 .header-div {
   width: 100vw;
-  position: absolute;
+  height: 10vh;
+  position: relative;
   background-color: black;
   top: 0;
   left: 0;
@@ -57,6 +60,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .header-title {
@@ -85,18 +89,27 @@ span {
 }
 
 .test-post {
-  height: 10rem;
+  height: auto;
   width: 10rem;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.posts-page {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .postsContainer {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
 }
 
 .post {
@@ -122,4 +135,27 @@ span {
 
 .css-ag7rrr-MuiTypography-root {
   overflow-wrap: break-word !important;
+}
+
+.test-post {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.test-post-admin {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.post-container {
+  display: flex;
+  gap: 1rem;
 }

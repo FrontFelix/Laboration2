@@ -9,7 +9,8 @@ router.post('/login', async (req, res) => {
     // Check if username and password is correct
     if(req.session.id) {
         console.log('finns id redan')
-        console.log(req.session)
+        console.log(req.cookies["session"])
+        console.log(req.session.id)
         return res.send('user logged in')
     }
     await mongoose.connect("mongodb://localhost:27017/mydb")

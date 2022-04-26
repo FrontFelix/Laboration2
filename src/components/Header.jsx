@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import TestButtons from "./TestButtons.jsx";
+
 
 
 function Header() {
 
-  const [user, setUser] = useState({})
+  // const [user, setUser] = useState({})
 
-  useEffect(() => {
-    async function getLogin() {
-      let response = await fetch('http://localhost:8080/login')
-      console.log(response)
-    }
-    getLogin()
-  })
+  // useEffect(() => {
+  //   async function getLogin() {
+  //     let response = await fetch("http://localhost:8080/login", { method: "GET", credentials: "include", })
+  //     let data = await response
+  //     console.log(JSON.stringify(data))
+  //   }
+  //   getLogin()
+  // })
 
   return (
     <div className="header-div">
@@ -23,9 +26,10 @@ function Header() {
       </div>
       <div className="header-divs">
         <h1 className="header-title">KWITTER</h1>
+      <TestButtons />
       </div>
       <div className="header-divs">
-        <h4 className="header-title">Logged in as: {user && user.username}</h4>
+        <h4 className="header-title">Logged in as: </h4>
       </div>
     </div>
   );
