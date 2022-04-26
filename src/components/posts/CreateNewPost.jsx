@@ -21,6 +21,12 @@ export function CreateNewPost() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const formSubmit = () => {
+    handleClose()
+    HandleAddNewPost()
+  }
+
   return (
     <div>
       <Button variant="contained" onClick={handleOpen}>
@@ -44,8 +50,8 @@ export function CreateNewPost() {
           <form
             className="createNewPostStyle"
             id="addNewPostForm"
-            onSubmit={HandleAddNewPost}
-            // onSubmit={(HandleAddNewPost, handleClose)}
+            // onSubmit={HandleAddNewPost}
+            onSubmit={formSubmit}
           >
             <label htmlFor="postTitle">Title</label>
             <TextField id="titleInput" variant="standard" />

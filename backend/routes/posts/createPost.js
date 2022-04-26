@@ -14,9 +14,9 @@ router.post("/post", async (req, res) => {
   req.session.id = uuid.v4()
   console.log(req.session)
   const newPost = new postModel({
-    postTitle: "wurr",
+    postTitle: req.body.title,
     author: "PappaHepsever",
-    content: "wurr",
+    content: req.body.content,
   });
 
   await newPost.save();

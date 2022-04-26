@@ -7,6 +7,7 @@ import StartPage from "./pages/StartPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import PostsPage from "./pages/PostsPage.jsx";
 import TestPage from "./pages/TestPage.tsx";
+import RegisterPage from "./pages/RegisterPage"
 
 function Layout() {
   return (

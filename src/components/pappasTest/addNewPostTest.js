@@ -3,7 +3,6 @@ async function HandleAddNewPost(event) {
     let postTitleValue = document.getElementById("titleInput").value;
     let postContentValue = document.getElementById("contentInput").value;
     let form = document.getElementById("addNewPostForm");
-    event.preventDefault();
 
     let newPostInputs = {
       title: postTitleValue,

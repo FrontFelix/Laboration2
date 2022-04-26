@@ -2,8 +2,10 @@ import getPosts from "../pappasTest/getPostsTest";
 import { PostCard } from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
 import { CreateNewPost } from "../posts/CreateNewPost";
+import wagwan from "js-cookie";
 
 function PostsPage() {
+  // console.log(wagwan.get('session'))
   let [posts, setPosts] = useState([]);
 
   useEffect(() => {

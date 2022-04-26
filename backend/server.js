@@ -22,6 +22,7 @@ let deletePostRouter = require("./routes/posts/deletePost");
 let deleteUserRouter = require("./routes/user/deleteUser");
 let getUsersRouter = require("./routes/user/getUsers");
 let getPostsRouter = require("./routes/posts/getPosts");
+let getLoginRouter = require('./routes/user/getLoginDetails')
 
 MongoClient.connect(url, function (err, db) {
   if (err) throw err;
@@ -35,9 +36,9 @@ MongoClient.connect(url, function (err, db) {
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tK3y",
-    maxAge: 1000 * 10, // 10s (quick expiry for testing, usually longer!)
+    maxAge: 1000 * 500, // 10s (quick expiry for testing, usually longer!)
     sameSite: "strict",
-    httpOnly: true,
+    httpOnly: false,
     secure: false,
   })
 );
@@ -61,6 +62,7 @@ app.use(deletePostRouter);
 app.use(deleteUserRouter);
 app.use(getUsersRouter);
 app.use(getPostsRouter);
+app.use(getLoginRouter)
 // ROUTES
 
 app.get("/test", async (req, res) => {

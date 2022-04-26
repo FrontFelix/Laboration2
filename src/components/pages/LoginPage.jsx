@@ -1,11 +1,12 @@
+import loginUser from "../pappasTest/loginUser";
 function LoginPage() {
   return (
     <div>
-      <form action="" className="login-form">
+      <form onSubmit={loginUser} className="login-form">
         <label htmlFor="username">Username</label>
-        <input type="text" />
+        <input id="userUsername" type="text" />
         <label htmlFor="password">Password</label>
-        <input type="password" />
+        <input id="userPassword" type="password" />
         <button>Log in</button>
       </form>
     </div>
