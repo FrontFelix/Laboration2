@@ -2,7 +2,6 @@ import getPosts from "../pappasTest/getPostsTest";
 import PostCard from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
 import { CreateNewPost } from "../posts/CreateNewPost";
-// import { DeletePost } from "../pappasTest/deletePostTEST";
 
 function PostsPage() {
   // console.log(wagwan.get('session'))
@@ -16,10 +15,11 @@ function PostsPage() {
     fetchFunction();
   });
   return (
-    <div>
+    <div className="posts-page">
       <p>
         These are my posts. There are many posts like these, but these are mine.
       </p>
+      <h1>Recent posts</h1>
       <div>
         <CreateNewPost />
       </div>

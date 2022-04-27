@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function StartPage() {
   return (
@@ -8,15 +9,11 @@ function StartPage() {
         Join <span id="specialK">K</span>WITTER today
       </h1>
       <Link to={"/register"}>
-        <button>
-          <h1>Register</h1>
-        </button>
+              <Button variant="contained">Register</Button>
       </Link>
       <h2>Already registered?</h2>
       <Link to={"/login"}>
-        <button>
-          <h2>Log in</h2>
-        </button>
+              <Button variant="contained">Login</Button>
       </Link>
     </div>
   );
