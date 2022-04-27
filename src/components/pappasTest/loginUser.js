@@ -10,14 +10,15 @@ async function loginUser(event) {
         password: password,
       };
   
-      fetch("http://localhost:8080/login", {
+      let response = await fetch("http://localhost:8080/login", {
         method: "POST",
         body: JSON.stringify(newUserInputs),
         headers: {
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+        }
       });
+      let data = await response.json()
+      console.log(data)
       console.log(newUserInputs)
       form.reset();
     } catch (err) {
