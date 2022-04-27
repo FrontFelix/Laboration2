@@ -2,7 +2,7 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { DeletePost } from "../pappasTest/deletePost";
+// import { DeletePost } from "../pappasTest/deletePost";
 
 const options = [
   'Edit',
@@ -53,7 +53,7 @@ function LongMenu(menu : menuProps){
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option} onClick={() => {if(option === "Delete") {DeletePost(menu.id)}}}>
+          <MenuItem key={option} onClick={() => {console.log('wagwan')}}>
             {option}
           </MenuItem>
         ))}

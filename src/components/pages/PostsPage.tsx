@@ -2,11 +2,7 @@ import getPosts from "../pappasTest/getPostsTest";
 import PostCard from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
 import { CreateNewPost } from "../posts/CreateNewPost";
-<<<<<<< Updated upstream:src/components/pages/PostsPage.jsx
-import wagwan from "js-cookie";
-=======
 // import { DeletePost } from "../pappasTest/deletePostTEST";
->>>>>>> Stashed changes:src/components/pages/PostsPage.tsx
 
 function PostsPage() {
   // console.log(wagwan.get('session'))
