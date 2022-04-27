@@ -13,4 +13,5 @@ export interface userInterface {
     userRealName : string,
     userPassword : string,
     isAdmin : boolean
+    
 }

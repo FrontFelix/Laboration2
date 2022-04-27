@@ -2,27 +2,45 @@
 import { createContext, FC, useContext, useState } from "react";
 import { userInterface } from "../interface/interface";
 
+
+
 interface UserContext {
-    loggedInUser : userInterface | {},
+    loggedInUser : userInterface,
     fetchUser : () => void,
 }
 
 export const UserContext = createContext<UserContext>({
-    loggedInUser : {},
-    fetchUser: () => {}
+    loggedInUser : {
+      _id: 1,
+      username: "test",
+      userRealName: "test",
+      userPassword: "wagwan",
+      isAdmin: true,
+    },
+    fetchUser: () => {},
 });
 
-export const UserProvider: FC = (props) => {
+export function UserProvider(props : any) {
 
-    const [loggedInUser, setLoggedInUser] = useState({})
+    const [loggedInUser, setLoggedInUser] = useState({
+      _id: 1,
+      username: "test",
+      userRealName: "test",
+      userPassword: "wagwan",
+      isAdmin: true,
+    })
 
-    const fetchUser = () => {
-
+    const fetchUser = async () => {
+      let response = await fetch('http://localhost:8080/login', {
+        method: "GET"
+      })
+      let data = await response.json()
+      setLoggedInUser(data)
     }
 
   return (
     <UserContext.Provider value={{loggedInUser, fetchUser}}>
-      <h1>wagwan</h1>
+      {props.children}
     </UserContext.Provider>
   );
 };
