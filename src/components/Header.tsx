@@ -5,7 +5,6 @@ import { useUser } from "./contexts/LoginContext";
 
 function Header() {
   const {loggedInUser} = useUser()
-  console.log(loggedInUser)
 
 
   // useEffect(() => {

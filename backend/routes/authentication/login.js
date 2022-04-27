@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const uuid = require('uuid')
 
 router.post('/login', async (req, res) => {
+    console.log('Ska logga in')
     // Check if username and password is correct
     // if(req.session.id) {
     //     console.log('finns id redan')
@@ -16,14 +17,14 @@ router.post('/login', async (req, res) => {
     await mongoose.connect("mongodb://localhost:27017/mydb")
     users.find({username: req.body.name}).then(async function (user) {
         if(!user[0] || !await bcrypt.compare(req.body.password, user[0].userPassword)){
+            console.log('Fel användarnamn eller löseord')
             res.status(401).json('Wrong username orr password')
             return
         }else {
             req.session.user = user[0]
             req.session.loginDate = new Date()
             console.log("inloggad")
-            console.log(req.session)
-            res.json('test')
+            res.json(req.session.user)
         }
         });
     // console.log(user)
@@ -38,9 +39,12 @@ router.post('/login', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
+    console.log('hämtar user')
     if(req.session.user) {
+        console.log('User hämtad')
         return res.json(req.session.user) 
     }
+    console.log('User inte hämtad')
     res.send('inte inloggad')
 })
 

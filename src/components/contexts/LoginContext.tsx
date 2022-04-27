@@ -6,35 +6,31 @@ import { userInterface } from "../interface/interface";
 
 interface UserContext {
     loggedInUser : userInterface,
-    fetchUser : () => void,
+    fetchUser : (user : userInterface) => void,
 }
 
 export const UserContext = createContext<UserContext>({
     loggedInUser : {
       _id: 1,
-      username: "test",
+      username: "wagwan",
       userRealName: "test",
       userPassword: "wagwan",
       isAdmin: true,
     },
-    fetchUser: () => {},
+    fetchUser: (user : userInterface) => {},
 });
 
 export function UserProvider(props : any) {
 
     const [loggedInUser, setLoggedInUser] = useState({
       _id: 1,
-      username: "test",
+      username: "wagwan",
       userRealName: "test",
       userPassword: "wagwan",
       isAdmin: true,
     })
 
-    const fetchUser = async () => {
-      let response = await fetch('http://localhost:8080/login', {
-        method: "GET"
-      })
-      let data = await response.json()
+    const fetchUser = async (data : userInterface) => {
       setLoggedInUser(data)
     }
 

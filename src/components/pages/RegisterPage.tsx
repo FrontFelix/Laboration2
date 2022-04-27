@@ -6,12 +6,12 @@ function RegisterPage() {
     <div>
       <form action="" className="login-form">
         <label htmlFor="username">Username</label>
-        <input type="text" />
+        <input required type="text" />
         <label htmlFor="email">E-mail</label>
-        <input type="text" />
+        <input required type="email" />
         <label htmlFor="password">Password</label>
-        <input type="password" />
-        <Button variant="contained">Register</Button>        
+        <input required type="password" />
+        <Button type="submit" variant="contained">Register</Button>        
       </form>
 
       <h1>Already a user?</h1>

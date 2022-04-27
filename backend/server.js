@@ -28,7 +28,7 @@ MongoClient.connect(url, function (err, db) {
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tK3y",
-    maxAge: 1000 * 500, // 10s (quick expiry for testing, usually longer!)
+    maxAge: 1000 * 10, // 10s (quick expiry for testing, usually longer!)
     sameSite: "strict",
     httpOnly: false,
     secure: false,
