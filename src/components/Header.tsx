@@ -7,10 +7,6 @@ function Header() {
   const {loggedInUser} = useUser()
   console.log(loggedInUser)
 
-<<<<<<< Updated upstream
-  // const [user, setUser] = useState({})
-=======
->>>>>>> Stashed changes
 
   // useEffect(() => {
   //   async function getLogin() {
@@ -31,11 +27,7 @@ function Header() {
         <h1 className="header-title">KWITTER</h1>
       </div>
       <div className="header-divs">
-<<<<<<< Updated upstream
-        <h4 className="header-title">Logged in as:</h4>
-=======
         <h4 className="header-title">Logged in as: {loggedInUser.username}</h4>
->>>>>>> Stashed changes
       </div>
     </div>
   );

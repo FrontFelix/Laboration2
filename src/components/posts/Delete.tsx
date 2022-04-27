@@ -53,11 +53,7 @@ function LongMenu(menu : menuProps){
         }}
       >
         {options.map((option) => (
-<<<<<<< Updated upstream
-          <MenuItem key={option} onClick={() => {console.log('wagwan')}}>
-=======
-          <MenuItem key={option} onClick={() => console.log('wagwan')}>
->>>>>>> Stashed changes
+          <MenuItem key={option}>
             {option}
           </MenuItem>
         ))}
