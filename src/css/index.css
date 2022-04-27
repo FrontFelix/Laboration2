@@ -178,3 +178,11 @@ span {
 .delDots {
   font-size: x-small;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  border: 1px black solid;
+  padding: 1rem;
+}

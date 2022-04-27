@@ -7,21 +7,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    userRealName: {
-      type: String,
-      required: true,
-    },
-    userEmail: {
+    email: {
       type: String,
       required: true,
       unique: true,
     },
-    userPassword: {
+    password: {
       type: String,
-      required: true,
-    },
-    isAdmin: {
-      type: Boolean,
       required: true,
     },
   },

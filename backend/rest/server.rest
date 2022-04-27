@@ -1,47 +1,36 @@
-GET http://localhost:8080/test
-
-###
-
 //Login request
-POST http://localhost:8080/login
+POST http://localhost:8080/account/login
 Content-Type: application/json
 
 {
-    "name": "test",
+    "name": "felix",
     "password": "test"
 }
 ###
 
-//Hämtar alla användare
-GET http://localhost:8080/users
+/// Register new user
+POST http://localhost:8080/account/register
+Content-Type: application/json
+
+{
+    "username": "felix",
+    "email": "testgmail",
+    "password": "test"
+}
 ###
 
-// Ny användare
-POST http://localhost:8080/register
+GET http://localhost:8080/account/user
+Content-Type: application/json
+
+
 ###
+DELETE http://localhost:8080/account/logout
+Content-Type: application/json
 
-
-//Lägger till ny user
-POST http://localhost:8080/user
-####
-
-//Tar bort user
-DELETE http://localhost:8080/user
 ###
-
-//Hämtar alla posts
 GET http://localhost:8080/posts
+Content-Type: application/json
 ###
 
-//Lägger till post
-POST http://localhost:8080/post
-###
-
-//Tar bort post
-DELETE http://localhost:8080/post
-###
-
-//Hämtar inloggade användaren
-GET http://localhost:8080/login
-
-
+DELETE http://localhost:8080/post/6269085c3d07e999f28179f4
+Content-Type: application/json

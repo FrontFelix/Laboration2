@@ -1,4 +1,4 @@
-import getPosts from "../pappasTest/getPostsTest";
+import getPosts from "../posts/getPosts";
 import PostCard from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
 import { CreateNewPost } from "../posts/CreateNewPost";

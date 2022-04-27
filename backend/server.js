@@ -1,34 +1,32 @@
 const express = require("express");
 const app = express();
-const port = 8080;
+const mongoose = require('mongoose')
+
 const cookieSession = require("cookie-session");
-const bcrypt = require("bcrypt");
-let cors = require("cors");
-var MongoClient = require("mongodb").MongoClient;
-var url = "mongodb://0.0.0.0:27017/mydb";
+
+const port = 8080;
+var url = "mongodb://localhost:27017/mydb";
+
 app.use(express.json());
-app.use(cors());
 
-let registerRouter = require("./routes/authentication/register");
-let loginRouter = require("./routes/authentication/login");
-let postRouter = require('./routes/posts/postRouter')
-let createUserRouter = require("./routes/user/createUser");
-let deleteUserRouter = require("./routes/user/deleteUser");
-let getUsersRouter = require("./routes/user/getUsers");
 
-MongoClient.connect(url, function (err, db) {
-  if (err) throw err;
-  let database = db.db("mydb");
+mongoose.connect(
+  url,
+  { useNewUrlParser: true },
+  (err) => {
+    console.log("Database is connected!");
+  }
+);
 
-  console.log("Database created!");
-  db.close();
-});
+let postRouter = require('./routes/postRouter')
+let userRouter = require('./routes/userRouter')
+
 
 // Prepare tamper-proof cookie (https still needed for secure login)
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tK3y",
-    maxAge: 1000 * 10, // 10s (quick expiry for testing, usually longer!)
+    maxAge: 1000 * 100, // 10s (quick expiry for testing, usually longer!)
     sameSite: "strict",
     httpOnly: false,
     secure: false,
@@ -37,17 +35,10 @@ app.use(
 
 
 // ROUTES
-app.use(createUserRouter);
-app.use(registerRouter);
-app.use(loginRouter);
-app.use(postRouter)
-app.use(deleteUserRouter);
-app.use(getUsersRouter);
+app.use(postRouter);
+app.use(userRouter)
 // ROUTES
 
-app.get("/test", async (req, res) => {
-  return await res.send("testar");
-});
 
 app.listen(port, () => {
   console.log("Server körs");

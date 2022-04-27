@@ -1,26 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const postModel = require("../../models/posts/postModel");
+const postModel = require("../models/posts/postModel");
 const uuid = require('uuid')
 
-const GetPosts = require("../../functions/posts/getPosts");
 
+
+// Funkar
 router.get("/posts", async (req, res) => {
-  let posts = await GetPosts();
-  return res.send(JSON.stringify(posts));
+  try {
+    const posts = await postModel.find({});
+    res.json(posts);
+  } catch (err) {
+    res.send("Error getting posts")
+  }
 });
 
 router.post("/post", async (req, res) => {
-  await mongoose.connect("mongodb://localhost:27017/mydb");
-  req.session.id = uuid.v4()
-  console.log(req.session)
+  if(!req.session.user) return res.status(401).send('You need to login to create a post')
   const newPost = new postModel({
     postTitle: req.body.title || "wagwan",
-    author: "test"/*req.session.user.username*/,
+    author: req.session.username,
     content: req.body.content || "wagwan",
   });
-
   await newPost.save();
 
   res.send("Ny post tillagd");
@@ -29,9 +31,10 @@ router.post("/post", async (req, res) => {
 
 
 
-router.delete('/post', async (req, res) => {
-    await mongoose.connect("mongodb://localhost:27017/mydb")
-    postModel.deleteOne({ _id: req.body.id }).then(function(){
+router.delete('/post/:id', async (req, res) => {
+    if(!req.session.user) return res.status(401).send('You need to login to delete a post')
+    const {id} = req.params
+    postModel.deleteOne({ _id: id }).then(function(){
     console.log("Data deleted"); // Success
     }).catch(function(error){
     console.log(error); // Failure
