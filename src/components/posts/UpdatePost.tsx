@@ -59,20 +59,25 @@ export function UpdatePost(props: menuProps) {
             // onSubmit={HandleAddNewPost}
             onSubmit={formSubmit}
           >
-            <label htmlFor="UpdatedPostTitle">Title</label>
             <TextField
-              onChange={(e) => setTitleValue(e.target.value)}
-              id="UpdatedPostTitle"
-              variant="standard"
-            />
-            <label htmlFor="UpdatedContentTitle">Content</label>
-            <TextField
-              onChange={(e) => setContentValue(e.target.value)}
-              id="UpdatedContentTitle"
-              variant="outlined"
-              multiline
-              maxRows={10}
-            />
+            id="UpdatedPostTitle"
+            label="Update title"
+            variant="outlined"
+            required
+            autoComplete="off"
+            InputLabelProps={{ required: false }}
+            onChange={(e) => setTitleValue(e.target.value)}
+          />
+          <TextField
+            id="UpdatedPostContent"
+            label="Update your thoughts..."
+            multiline
+            rows={4}
+            required
+            InputLabelProps={{ required: false }}
+            autoComplete="off"
+            onChange={(e) => setContentValue(e.target.value)}
+          />
             <Button type="submit" variant="contained">
               Save edit
             </Button>

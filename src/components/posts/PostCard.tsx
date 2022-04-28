@@ -25,9 +25,9 @@ function PostCard(props: postCard) {
           <Typography variant="body2">{props.post.content}</Typography>
         </CardContent>
       </React.Fragment>
-      {props.post.author === loggedInUser.username && (
-        <LongMenu id={props.post._id} />
-      )}
+      {props.post.author === loggedInUser.username ?
+        <LongMenu id={props.post._id} /> : null
+            }
     </div>
   );
 }

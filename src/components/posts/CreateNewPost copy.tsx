@@ -11,6 +11,9 @@ export function CreateNewPostTEST() {
   const formSubmit = () => {
     HandleAddNewPost();
     fetchPosts();
+    setTimeout(() => {
+      window.location.reload()
+    }, 100)
   };
 
   return (
@@ -29,9 +32,8 @@ export function CreateNewPostTEST() {
         // onSubmit={HandleAddNewPost}
         onSubmit={formSubmit}
       >
-        <div className="UpdateNewPostStyle">
           <TextField
-            id="outlined-basic"
+            id="titleInput"
             label="Post title"
             variant="outlined"
             required
@@ -39,7 +41,7 @@ export function CreateNewPostTEST() {
             InputLabelProps={{ required: false }}
           />
           <TextField
-            id="outlined-multiline-static"
+            id="contentInput"
             label="Share your thoughts..."
             multiline
             rows={4}
@@ -47,7 +49,6 @@ export function CreateNewPostTEST() {
             InputLabelProps={{ required: false }}
             autoComplete="off"
           />
-        </div>
         <Button type="submit" variant="contained">
           Submit new post
         </Button>

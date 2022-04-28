@@ -28,6 +28,10 @@ export function CreateNewPost() {
     handleClose();
     HandleAddNewPost();
     fetchPosts();
+    setTimeout(() => {
+      window.location.reload()
+    }, 100)
+    
   };
 
   return (

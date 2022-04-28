@@ -30,18 +30,15 @@ export default function PostCardNew(props: postCard) {
             {props.post.author.charAt(0)}
           </Avatar>
         }
-        action={
-          <IconButton className='rotated' aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={props.post.author}
         subheader={props.post.postTitle}
         />
-      {props.post.author === loggedInUser.username && (
-        <LongMenu id={props.post._id} />
-        )}
       <CardContent>
+            {props.post.author === loggedInUser.username ?
+            <div className='rotated'>
+            <LongMenu id={props.post._id} /> 
+            </div> : null
+            }
         <Typography variant="body2" color="text.secondary">
           {props.post.content}
         </Typography>

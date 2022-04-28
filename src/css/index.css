@@ -209,7 +209,10 @@ input {
 }
 
 .rotated {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .UpdateNewPostStyle {
