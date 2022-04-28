@@ -19,16 +19,16 @@ const style = {
 };
 
 export function CreateNewPost() {
-  const {fetchPosts} = useUser()
+  const { fetchPosts } = useUser();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const formSubmit = () => {
-    handleClose()
-    HandleAddNewPost()
-    fetchPosts()
-  }
+    handleClose();
+    HandleAddNewPost();
+    fetchPosts();
+  };
 
   return (
     <div>

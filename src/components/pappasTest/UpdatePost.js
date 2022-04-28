@@ -1,15 +1,11 @@
-async function HandleUpdatePost(event , id) {
-  let UpdatedPostTitleValue = document.getElementById("UpdatedPostTitle").value;
-  console.log(UpdatedPostTitleValue)
+async function HandleUpdatePost(event, id, title, content) {
   try {
-    let UpdatedPostContentValue = document.getElementById("UpdatedContentInput").value;
     let form = document.getElementById("UpdatedPostForm");
 
     let updatePostInputs = {
-      title: UpdatedPostTitleValue,
-      content: UpdatedPostContentValue
+      title: title,
+      content: content,
     };
-
 
     fetch(`http://localhost:8080/post/${id}`, {
       method: "PUT",
@@ -19,7 +15,7 @@ async function HandleUpdatePost(event , id) {
       },
       credentials: "include",
     });
-
+    console.log(updatePostInputs);
     form.reset();
   } catch (err) {
     console.error(err);

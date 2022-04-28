@@ -1,5 +1,5 @@
 import * as React from "react";
-import LongMenu  from "../posts/Delete";
+import LongMenu from "./LongMenu";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 // import { DeletePost } from "../pappasTest/deletePost";
@@ -7,11 +7,11 @@ import { postInterface } from "../interface/interface";
 import { useUser } from "../contexts/LoginContext";
 
 interface postCard {
-  post : postInterface
+  post: postInterface;
 }
 
-function PostCard(props : postCard) {
-  const {loggedInUser} = useUser()
+function PostCard(props: postCard) {
+  const { loggedInUser } = useUser();
   return (
     <div className="post">
       <React.Fragment>
@@ -25,10 +25,11 @@ function PostCard(props : postCard) {
           <Typography variant="body2">{props.post.content}</Typography>
         </CardContent>
       </React.Fragment>
-      {props.post.author === loggedInUser.username && <LongMenu id={props.post._id}/>}
+      {props.post.author === loggedInUser.username && (
+        <LongMenu id={props.post._id} />
+      )}
     </div>
   );
 }
 
-export default PostCard
-
+export default PostCard;
