@@ -42,20 +42,6 @@ function LoginPage() {
   return (
     <div className="main-div">
       <form onSubmit={onSubmit} id="loginForm" className="login-form">
-        {/* <label htmlFor="username">Username</label>
-        <input
-          required
-          onChange={(e) => setUsername(e.target.value)}
-          id="userUsername"
-          type="text"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          onChange={(e) => setPassword(e.target.value)}
-          id="userPassword"
-          type="password"
-        /> */}
         <TextField
           id="outlined-basic"
           label="Username"
@@ -71,6 +57,7 @@ function LoginPage() {
           variant="outlined"
           required
           onChange={(e) => setPassword(e.target.value)}
+          InputLabelProps={{ required: false }}
         />
         <Button type="submit" variant="contained">
           Log in

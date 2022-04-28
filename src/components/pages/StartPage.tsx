@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useEffect } from "react";
 import { useUser } from "../contexts/LoginContext";
-import RecipeReviewCard from "../posts/PostCard2";
+import PostCardNew from "../posts/PostCard2";
 
 function StartPage() {
 

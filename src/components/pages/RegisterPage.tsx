@@ -6,31 +6,28 @@ function RegisterPage() {
   return (
     <div className="main-div">
       <form action="" className="login-form">
-        {/* <label htmlFor="username">Username</label>
-        <input required type="text" /> */}
         <TextField
           id="outlined-basic"
           label="Username"
           variant="outlined"
           required
+          InputLabelProps={{ required: false }}
         />
-        {/* <label htmlFor="email">E-mail</label>
-        <input required type="email" /> */}
         <TextField
           id="outlined-basic"
           label="E-mail"
           variant="outlined"
           type="email"
           required
+          InputLabelProps={{ required: false }}
         />
-        {/* <label htmlFor="password">Password</label>
-        <input required type="password" /> */}
         <TextField
           id="outlined-basic"
           label="Password"
           variant="outlined"
           type="password"
           required
+          InputLabelProps={{ required: false }}
         />
         <Button type="submit" variant="contained">
           Register

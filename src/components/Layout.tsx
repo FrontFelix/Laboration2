@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import LoginPage from "./pages/LoginPage";
@@ -16,7 +15,6 @@ function Layout() {
       <UserProvider>
         <BrowserRouter>
           <Header />
-          {/* <TestButtons /> */}
           <div className="layout-div">
             <Routes>
               <Route path="/" element={<StartPage />} />
@@ -24,7 +22,6 @@ function Layout() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/posts" element={<PostsPage />} />
-              {/* <Route path="/testPage" element={<TestPage />} /> */}
             </Routes>
           </div>
         </BrowserRouter>

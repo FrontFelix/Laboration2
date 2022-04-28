@@ -1,7 +1,8 @@
 import Button from "@mui/material/Button";
 
 function AdminPage() {
-  return <div>
+  return <div className="main-div">
+    <h1>THIS SITE IS UNDER CONSTRUCTION</h1>
     <h1>Here's a list of all the KWITTER users.</h1>
       <div className="post-container">
         <div className="test-post">

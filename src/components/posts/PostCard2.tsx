@@ -2,32 +2,32 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { postInterface } from '../interface/interface';
 import PostCard from './PostCard';
+import { useUser } from '../contexts/LoginContext';
+import LongMenu from './LongMenu';
 
 interface postCard {
   post : postInterface
 }
 
-export default function RecipeReviewCard() {
+export default function PostCardNew(props: postCard) {
+  const { loggedInUser } = useUser();
 
   return (
-    <Card sx={{ maxWidth: 800 }}>
+    <div className='post'>
+
+    <Card sx={{ width: '30rem' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            F
+            {props.post.author.charAt(0)}
           </Avatar>
         }
         action={
@@ -35,15 +35,18 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="FlxBkm"
-        subheader="April 28, 2022"
-      />
+        title={props.post.author}
+        subheader={props.post.postTitle}
+        />
+      {props.post.author === loggedInUser.username && (
+        <LongMenu id={props.post._id} />
+        )}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This is a test post written by this absolute mongoDB. 
-          AdaHep fell off and Felix invested all his money into NFTs
+          {props.post.content}
         </Typography>
       </CardContent>
     </Card>
+        </div>
   );
 }
