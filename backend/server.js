@@ -1,13 +1,20 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 const cookieSession = require("cookie-session");
 
 const port = 8080;
 var url = "mongodb://localhost:27017/mydb";
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
+);
 
 
 mongoose.connect(
@@ -26,7 +33,7 @@ let userRouter = require('./routes/userRouter')
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tK3y",
-    maxAge: 1000 * 100, // 10s (quick expiry for testing, usually longer!)
+    maxAge: 1000 * 5000, // 10s (quick expiry for testing, usually longer!)
     sameSite: "strict",
     httpOnly: false,
     secure: false,

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 
 function RegisterPage() {
   return (
-    <div>
+    <div className="main-div">
       <form action="" className="login-form">
         <label htmlFor="username">Username</label>
         <input required type="text" />

@@ -13,8 +13,8 @@ POST http://localhost:8080/account/register
 Content-Type: application/json
 
 {
-    "username": "felix",
-    "email": "testgmail",
+    "username": "adam",
+    "email": "testgmail123",
     "password": "test"
 }
 ###
@@ -34,3 +34,21 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/post/6269085c3d07e999f28179f4
 Content-Type: application/json
+
+###
+POST http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "title": "hejhej",
+    "content": "wagwan"
+}
+
+### 
+PUT http://localhost:8080/post/626a440ddf8b0f03102b4b09
+Content-Type: application/json
+
+{
+    "title": "redigerar",
+    "content": "redigerar"
+}

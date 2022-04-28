@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import HandleAddNewPost from "../pappasTest/addNewPostTest";
 import TextField from "@mui/material/TextField";
 import { useUser } from "../contexts/LoginContext";
+import HandleUpdatePost from "../pappasTest/UpdatePost";
 
 const style = {
   position: "absolute",
@@ -18,26 +19,24 @@ const style = {
   p: 4,
 };
 
-export function CreateNewPost() {
-  const {fetchPosts} = useUser()
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
-  const formSubmit = () => {
-    handleClose()
-    HandleAddNewPost()
-    fetchPosts()
+interface menuProps {
+  id : number
+}
+
+export function UpdatePost(props : menuProps) {
+  const {editModal, closeEditModal} = useUser()
+
+  const formSubmit = (e : any) => {
+    closeEditModal()
+    HandleUpdatePost(e, props.id)
   }
 
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen}>
-        Create new post
-      </Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={editModal}
+        onClose={closeEditModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -48,25 +47,25 @@ export function CreateNewPost() {
             component="h2"
             align="center"
           >
-            Add new post
+            Edit post
           </Typography>
           <form
-            className="createNewPostStyle"
-            id="addNewPostForm"
+            className="UpdateNewPostStyle"
+            id="UpdatedPostForm"
             // onSubmit={HandleAddNewPost}
             onSubmit={formSubmit}
           >
-            <label htmlFor="postTitle">Title</label>
-            <TextField id="titleInput" variant="standard" />
-            <label htmlFor="postContent">Content</label>
+            <label htmlFor="UpdatedPostTitle">Title</label>
+            <TextField id="UpdatedPostTitle" variant="standard" />
+            <label htmlFor="UpdatedContentTitle">Content</label>
             <TextField
-              id="contentInput"
+              id="UpdatedContentTitle"
               variant="outlined"
               multiline
               maxRows={10}
             />
             <Button type="submit" variant="contained">
-              Submit new post
+              Save edit
             </Button>
           </form>
         </Box>

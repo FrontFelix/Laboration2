@@ -2,6 +2,8 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { UpdatePost } from './UpdatePost';
+import { useUser } from '../contexts/LoginContext';
 // import { DeletePost } from "../pappasTest/deletePost";
 
 const options = [
@@ -17,6 +19,7 @@ interface menuProps {
 }
 
 function LongMenu(menu : menuProps){
+  const {openEditModal, editModal} = useUser()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event : any) => {
@@ -53,11 +56,16 @@ function LongMenu(menu : menuProps){
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option}>
+          <MenuItem key={option} onClick={() => {
+            if(option === "Edit") {
+              openEditModal()
+            }
+          }}>
             {option}
           </MenuItem>
         ))}
       </Menu>
+      <UpdatePost id={menu.id} />
     </div>
   );
 }

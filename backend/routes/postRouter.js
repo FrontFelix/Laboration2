@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 const postModel = require("../models/posts/postModel");
-const uuid = require('uuid')
 
 
 
@@ -19,9 +17,9 @@ router.get("/posts", async (req, res) => {
 router.post("/post", async (req, res) => {
   if(!req.session.user) return res.status(401).send('You need to login to create a post')
   const newPost = new postModel({
-    postTitle: req.body.title || "wagwan",
-    author: req.session.username,
-    content: req.body.content || "wagwan",
+    postTitle: req.body.title,
+    author: req.session.user.username,
+    content: req.body.content,
   });
   await newPost.save();
 
@@ -42,6 +40,18 @@ router.delete('/post/:id', async (req, res) => {
 
     // await DeletePost()
     res.send('Tar bort post')
+})
+
+
+router.put('/post/:id', async (req, res) => {
+  if(!req.session.user) return res.status(401).send('You need to login to delete a post')
+  const {id} = req.params
+  await postModel.updateOne({_id: id}, {
+    postTitle: req.body.title,
+    author: req.session.user.username,
+    content: req.body.content
+  })
+  res.send('Uppdaterar post')
 })
 
 

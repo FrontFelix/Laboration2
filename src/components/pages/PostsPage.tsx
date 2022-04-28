@@ -2,31 +2,29 @@ import getPosts from "../posts/getPosts";
 import PostCard from "../posts/PostCard";
 import React, { useState, useEffect } from "react";
 import { CreateNewPost } from "../posts/CreateNewPost";
+import { useUser } from "../contexts/LoginContext";
+import RecipeReviewCard from "../posts/PostCard2";
 
 function PostsPage() {
   // console.log(wagwan.get('session'))
-  let [posts, setPosts] = useState([]);
-
+  const {isLoggedIn, fetchUser, posts, fetchPosts} = useUser()
+  
   useEffect(() => {
-    async function fetchFunction() {
-      let data = await getPosts();
-      setPosts(data);
-    }
-    fetchFunction();
-  });
+    fetchPosts()
+    fetchUser()
+  }, []);
   return (
     <div className="posts-page">
-      <p>
-        These are my posts. There are many posts like these, but these are mine.
-      </p>
-      <h1>Recent posts</h1>
-      <div>
-        <CreateNewPost />
+      <RecipeReviewCard/>
+      <div style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
+        {!isLoggedIn && <h4>Log in to create a new post</h4>}
+        {isLoggedIn && <CreateNewPost />}
       </div>
+      <h1>Recent posts</h1>
       <div className="postsContainer">
         {posts.map((post, index) => (
           <div key={index}>
-            <PostCard post={post} />
+            <PostCard post={post}/>
           </div>
         ))}
       </div>

@@ -9,6 +9,7 @@ const uuid = require('uuid')
 router.post('/account/login', async (req, res) => {
     let user = await users
     .findOne({username : req.body.name})
+    if(!user) return res.status(404).send('ingen user')
     let matchPassword = await bcrypt.compare(req.body.password, user.password) // returns true or false
     if(!matchPassword) return res.status(401).json('Wrong username or password') // if false
     req.session.user = user
@@ -31,7 +32,6 @@ router.post("/account/register", async (req, res) => {
         password : hashedPassword,
     })
     await user.save()
-    
     res.send("wagwan")
 })
 

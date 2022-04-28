@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useUser } from "../contexts/LoginContext";
 import loginUser from "../pappasTest/loginUser";
 import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
+import PostsPage from "./PostsPage";
 
 
 function LoginPage() {
+  const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { fetchUser } = useUser();
   async function signIN() {
     try {
 
@@ -17,17 +19,16 @@ function LoginPage() {
       };
 
 
-      let response = await fetch("http://localhost:8080/login", {
+      let response = await fetch("http://localhost:8080/account/login", {
         method: "POST",
         body: JSON.stringify(newUserInputs),
         headers: {
           "Content-Type": "application/json",
-        }
+        },
+        credentials: "include",
       });
       // console.log(await loginUser())
-      let data = await response.json()
-      fetchUser(data)
-      
+      navigate('/posts')
 
       // console.log(data)
     } catch (err) {
@@ -42,7 +43,7 @@ function LoginPage() {
     console.log("refresh prevented");
   };
   return (
-    <div>
+    <div className="main-div">
       <form
         onSubmit={onSubmit}
         id="loginForm"
@@ -54,6 +55,10 @@ function LoginPage() {
         <input required onChange={(e) => setPassword(e.target.value)} id="userPassword" type="password" />
         <Button type="submit" variant="contained">Log in</Button>    
       </form>
+      <h1>Not a member?</h1>
+      <Link to="/register">
+        <Button variant="contained">Register</Button>
+        </Link> 
     </div>
   );
 }
