@@ -3,7 +3,7 @@ POST http://localhost:8080/account/login
 Content-Type: application/json
 
 {
-    "name": "felix",
+    "name": "belle",
     "password": "test"
 }
 ###
@@ -13,8 +13,8 @@ POST http://localhost:8080/account/register
 Content-Type: application/json
 
 {
-    "username": "felix",
-    "email": "testgmail",
+    "username": "belle",
+    "email": "belle@ferrari.com",
     "password": "test"
 }
 ###
@@ -32,5 +32,25 @@ GET http://localhost:8080/posts
 Content-Type: application/json
 ###
 
-DELETE http://localhost:8080/post/6269085c3d07e999f28179f4
+
+// Ta bort en post
+DELETE http://localhost:8080/post/626a4f264665b932f962adba
 Content-Type: application/json
+
+###
+POST http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "title": "hejhej",
+    "content": "wagwan"
+}
+
+### 
+PUT http://localhost:8080/post/626a8e8f9d74580c6da09696
+Content-Type: application/json
+
+{
+    "title": "redigerar",
+    "content": "redigerar"
+}

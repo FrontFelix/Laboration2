@@ -1,10 +1,8 @@
 export interface postInterface {
-    post : {
-        _id : number,
-        postTitle : string,
-        author : string,
-        content : string
-    }
+    _id : number,
+    postTitle : string,
+    author : string,
+    content : string
 }
 
 export interface userInterface {

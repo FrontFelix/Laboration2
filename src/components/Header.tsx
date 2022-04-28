@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "./contexts/LoginContext";
+import Button from "@mui/material/Button";
 
 
 function Header() {
-  const {loggedInUser} = useUser()
+  const {loggedInUser, isLoggedIn} = useUser()
 
 
   // useEffect(() => {
@@ -18,16 +19,33 @@ function Header() {
   return (
     <div className="header-div">
       <div className="header-divs">
-        <Link className="link-style" to={"/"}>
-          <div className="header-title ptag ">K</div>
-        </Link>
+        {isLoggedIn ? 
+                <Link className="link-style" to={"/posts"}>
+                <div className="header-title header-logo ">K</div>
+              </Link>
+              :
+              <Link className="link-style" to={"/"}>
+              <div className="header-title header-logo ">K</div>
+            </Link>
+        }
       </div>
       <div className="header-divs">
         <h1 className="header-title">KWITTER</h1>
       </div>
-      <div className="header-divs">
-        <h4 className="header-title">Logged in as: {loggedInUser.username}</h4>
+        {isLoggedIn ? 
+      <div className="header-divs w-button">
+        <h4 className="header-title">Logged in as: {loggedInUser.username}</h4> 
+        <Link to="/">
+        <Button variant="contained">Logout</Button>
+        </Link>
       </div>
+        : 
+      <div className="header-divs">
+        <Link to="/login">
+        <Button variant="contained">Login</Button>
+        </Link>
+      </div>
+        }
     </div>
   );
 }

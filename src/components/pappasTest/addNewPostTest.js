@@ -6,7 +6,7 @@ async function HandleAddNewPost(event) {
 
     let newPostInputs = {
       title: postTitleValue,
-      content: postContentValue,
+      content: postContentValue
     };
 
     fetch("http://localhost:8080/post", {
@@ -15,6 +15,7 @@ async function HandleAddNewPost(event) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     });
 
     form.reset();
