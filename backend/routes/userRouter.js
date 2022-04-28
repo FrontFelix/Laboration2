@@ -35,7 +35,7 @@ router.post("/account/register", async (req, res) => {
     password: hashedPassword,
   });
   await user.save();
-  res.send("wagwan");
+  res.send("User created");
 });
 
 router.get("/account/user", async (req, res) => {

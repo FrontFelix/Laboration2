@@ -34,7 +34,6 @@ router.delete("/post/:id", async (req, res) => {
     return res.status(401).send("You need to login to delete a post");
 
   let foundPost = await postModel.findOne({ _id: id });
-  console.log(foundPost);
   if (req.session.user.username !== foundPost.author)
     return res.status(401).send("Not authorized");
 
@@ -53,9 +52,15 @@ router.delete("/post/:id", async (req, res) => {
 
 // Uppdatera post - funkar
 router.put("/post/:id", async (req, res) => {
+  const { id } = req.params;
   if (!req.session.user)
     return res.status(401).send("You need to login to delete a post");
-  const { id } = req.params;
+
+
+    let foundPost = await postModel.findOne({ _id: id });
+    if (req.session.user.username !== foundPost.author)
+      return res.status(401).send("Not authorized");
+
   await postModel.updateOne(
     { _id: id },
     {

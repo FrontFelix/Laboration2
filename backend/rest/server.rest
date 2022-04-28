@@ -3,7 +3,7 @@ POST http://localhost:8080/account/login
 Content-Type: application/json
 
 {
-    "name": "adam",
+    "name": "belle",
     "password": "test"
 }
 ###
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 
 // Ta bort en post
-DELETE http://localhost:8080/post/6267b33247949a8db72a09bf
+DELETE http://localhost:8080/post/626a4f264665b932f962adba
 Content-Type: application/json
 
 ###
