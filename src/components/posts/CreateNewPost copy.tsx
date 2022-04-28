@@ -35,6 +35,7 @@ export function CreateNewPostTEST() {
             label="Post title"
             variant="outlined"
             required
+            autoComplete="off"
             InputLabelProps={{ required: false }}
           />
           <TextField
@@ -44,6 +45,7 @@ export function CreateNewPostTEST() {
             rows={4}
             required
             InputLabelProps={{ required: false }}
+            autoComplete="off"
           />
         </div>
         <Button type="submit" variant="contained">

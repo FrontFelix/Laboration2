@@ -12,6 +12,7 @@ function RegisterPage() {
           variant="outlined"
           required
           InputLabelProps={{ required: false }}
+          autoComplete="off"
         />
         <TextField
           id="outlined-basic"
@@ -20,6 +21,7 @@ function RegisterPage() {
           type="email"
           required
           InputLabelProps={{ required: false }}
+          autoComplete="off"
         />
         <TextField
           id="outlined-basic"
@@ -28,6 +30,7 @@ function RegisterPage() {
           type="password"
           required
           InputLabelProps={{ required: false }}
+          autoComplete="off"
         />
         <Button type="submit" variant="contained">
           Register

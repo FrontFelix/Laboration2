@@ -49,6 +49,7 @@ function LoginPage() {
           required
           onChange={(e) => setUsername(e.target.value)}
           InputLabelProps={{ required: false }}
+          autoComplete="off"
         />
         <TextField
           id="outlined-basic"
@@ -58,6 +59,7 @@ function LoginPage() {
           required
           onChange={(e) => setPassword(e.target.value)}
           InputLabelProps={{ required: false }}
+          autoComplete="off"
         />
         <Button type="submit" variant="contained">
           Log in

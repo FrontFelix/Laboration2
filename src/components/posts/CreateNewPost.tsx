@@ -57,7 +57,12 @@ export function CreateNewPost() {
             onSubmit={formSubmit}
           >
             <label htmlFor="postTitle">Title</label>
-            <TextField id="titleInput" variant="standard" required/>
+            <TextField
+              id="titleInput"
+              variant="standard"
+              required
+              autoComplete="off"
+            />
             <label htmlFor="postContent">Content</label>
             <TextField
               id="contentInput"
@@ -65,6 +70,7 @@ export function CreateNewPost() {
               multiline
               maxRows={10}
               required
+              autoComplete="off"
             />
             <Button type="submit" variant="contained">
               Submit new post
