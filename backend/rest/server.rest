@@ -14,8 +14,8 @@ Content-Type: application/json
 
 {
     "username": "belle",
-    "email": "cm@ferrari.com",
-    "password": "aaa"
+    "email": "belle@belle.se",
+    "password": "test"
 }
 ###
 

@@ -1,14 +1,9 @@
-import getPosts from "../posts/getPosts";
-import PostCard from "../posts/PostCard";
-import React, { useState, useEffect } from "react";
-import { CreateNewPost } from "../posts/CreateNewPost";
+import React, { useEffect } from "react";
 import { useUser } from "../contexts/LoginContext";
-import PostCardNew from "../posts/PostCard2";
-import { TextField } from "@mui/material";
-import { CreateNewPostTEST } from "../posts/CreateNewPost copy";
+import { CreateNewPost } from "../posts/CreateNewPost";
+import PostCard from "../posts/PostCard";
 
 function PostsPage() {
-  // console.log(wagwan.get('session'))
   const { isLoggedIn, fetchUser, posts, fetchPosts } = useUser();
 
   useEffect(() => {
@@ -19,7 +14,6 @@ function PostsPage() {
     <div className="posts-page">
       {!isLoggedIn && <h4>Log in to create a new post</h4>}
         {isLoggedIn && <div>
-          <CreateNewPostTEST/>
           <CreateNewPost/>
         </div>
         }
@@ -35,7 +29,7 @@ function PostsPage() {
       <div className="postsContainer">
         {posts.map((post, index) => (
           <div key={index}>
-            <PostCardNew post={post} />
+            <PostCard post={post} />
           </div>
         ))}
       </div>

@@ -1,13 +1,12 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import HandleAddNewPost from "../pappasTest/addNewPostTest";
 import TextField from "@mui/material/TextField";
-import { useUser } from "../contexts/LoginContext";
-import HandleUpdatePost from "../pappasTest/UpdatePost";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { useState } from "react";
+import { useUser } from "../contexts/LoginContext";
+import HandleUpdatePost from "../functions/updatePost";
 
 const style = {
   position: "absolute",

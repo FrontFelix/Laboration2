@@ -1,15 +1,13 @@
-import { useState } from "react";
-import { useUser } from "../contexts/LoginContext";
-import loginUser from "../pappasTest/loginUser";
-import Button from "@mui/material/Button";
-import { Link, useNavigate } from "react-router-dom";
-import PostsPage from "./PostsPage";
 import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   async function signIN() {
     try {
       let newUserInputs = {
@@ -25,25 +23,21 @@ function LoginPage() {
         },
         credentials: "include",
       });
-      // console.log(await loginUser())
       navigate("/posts");
-
-      // console.log(data)
     } catch (err) {
-      // console.error(err);
+      console.error(err);
     }
   }
 
   const onSubmit = (e: any) => {
     e.preventDefault();
     signIN();
-    console.log("refresh prevented");
   };
   return (
     <div className="main-div">
       <form onSubmit={onSubmit} id="loginForm" className="login-form">
         <TextField
-          id="outlined-basic"
+          id="login-uname"
           label="Username"
           variant="outlined"
           required
@@ -52,7 +46,7 @@ function LoginPage() {
           autoComplete="off"
         />
         <TextField
-          id="outlined-basic"
+          id="login-pword"
           type="password"
           label="Password"
           variant="outlined"

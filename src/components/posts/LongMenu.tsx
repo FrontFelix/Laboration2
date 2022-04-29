@@ -1,11 +1,11 @@
-import * as React from "react";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { UpdatePost } from "./UpdatePost";
+import * as React from "react";
 import { useUser } from "../contexts/LoginContext";
-import { DeletePost } from "../pappasTest/deletePost";
-import MoreVertIcon  from "@mui/icons-material/MoreVert";
+import { DeletePost } from "../functions/deletePost";
+import { UpdatePost } from "./UpdatePost";
 
 const options = ["Edit", "Delete"];
 

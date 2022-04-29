@@ -1,5 +1,5 @@
 // @ts-ignore
-import { createContext, FC, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { postInterface, userInterface } from "../interface/interface";
 
 interface UserContext {
@@ -11,6 +11,7 @@ interface UserContext {
   editModal: boolean;
   closeEditModal: () => void;
   openEditModal: () => void;
+  signOut: () => void;
 }
 
 export const UserContext = createContext<UserContext>({
@@ -28,6 +29,7 @@ export const UserContext = createContext<UserContext>({
   editModal: false,
   closeEditModal: () => {},
   openEditModal: () => {},
+  signOut: () => {},
 });
 
 export function UserProvider(props: any) {
@@ -51,14 +53,12 @@ export function UserProvider(props: any) {
         },
         credentials: "include",
       });
-      // console.log(await loginUser())
       let data = await response.json();
       setLoggedInUser(data);
       setIsLoggedIn(true);
     } catch {
       setIsLoggedIn(false);
     }
-    // console.log(data)
   };
 
   const fetchPosts = async () => {
@@ -79,9 +79,22 @@ export function UserProvider(props: any) {
     setEditModal(true);
   };
 
-  // useEffect(() => {
-  //   fetchUser()
-  // })
+  const signOut = async () => {
+    let response = fetch(`http://localhost:8080/account/logout`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+    setIsLoggedIn(false);
+    setLoggedInUser({
+      _id: 1,
+      username: "wagwan",
+      userRealName: "test",
+      userPassword: "wagwan",
+      isAdmin: true,
+    });
+    window.location.reload();
+  };
+
 
   return (
     <UserContext.Provider
@@ -94,6 +107,7 @@ export function UserProvider(props: any) {
         closeEditModal,
         openEditModal,
         editModal,
+        signOut,
       }}
     >
       {props.children}

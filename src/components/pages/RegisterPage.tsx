@@ -1,13 +1,30 @@
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
+import HandleAddNewUser from "../functions/addNewUser";
 
 function RegisterPage() {
+
+  const navigate = useNavigate()
+  const registerSubmit = async (e : any) => {
+    e.preventDefault()
+    let response = await HandleAddNewUser()
+    if(!response?.ok) {
+      if(response?.status === 409) {
+
+        return alert('Username is taken!')
+      }
+      navigate('/login')
+    }else {
+      navigate('/login')
+    }
+  }
+
   return (
     <div className="main-div">
-      <form action="" className="login-form">
+      <form onSubmit={registerSubmit} action="" className="login-form" id="addNewUserForm">
         <TextField
-          id="outlined-basic"
+          id="register-uname"
           label="Username"
           variant="outlined"
           required
@@ -15,7 +32,7 @@ function RegisterPage() {
           autoComplete="off"
         />
         <TextField
-          id="outlined-basic"
+          id="register-email"
           label="E-mail"
           variant="outlined"
           type="email"
@@ -24,7 +41,7 @@ function RegisterPage() {
           autoComplete="off"
         />
         <TextField
-          id="outlined-basic"
+          id="register-pword"
           label="Password"
           variant="outlined"
           type="password"

@@ -208,6 +208,10 @@ input {
   flex-direction: column;
 }
 
+.front-page {
+  gap: 3rem;
+}
+
 .rotated {
   transform: rotate(90deg);
   position: absolute;
