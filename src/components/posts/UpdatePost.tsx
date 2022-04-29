@@ -1,13 +1,12 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import HandleAddNewPost from "../pappasTest/addNewPostTest";
 import TextField from "@mui/material/TextField";
-import { useUser } from "../contexts/LoginContext";
-import HandleUpdatePost from "../pappasTest/UpdatePost";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { useState } from "react";
+import { useUser } from "../contexts/LoginContext";
+import HandleUpdatePost from "../functions/updatePost";
 
 const style = {
   position: "absolute",
@@ -59,20 +58,25 @@ export function UpdatePost(props: menuProps) {
             // onSubmit={HandleAddNewPost}
             onSubmit={formSubmit}
           >
-            <label htmlFor="UpdatedPostTitle">Title</label>
             <TextField
-              onChange={(e) => setTitleValue(e.target.value)}
-              id="UpdatedPostTitle"
-              variant="standard"
-            />
-            <label htmlFor="UpdatedContentTitle">Content</label>
-            <TextField
-              onChange={(e) => setContentValue(e.target.value)}
-              id="UpdatedContentTitle"
-              variant="outlined"
-              multiline
-              maxRows={10}
-            />
+            id="UpdatedPostTitle"
+            label="Update title"
+            variant="outlined"
+            required
+            autoComplete="off"
+            InputLabelProps={{ required: false }}
+            onChange={(e) => setTitleValue(e.target.value)}
+          />
+          <TextField
+            id="UpdatedPostContent"
+            label="Update your thoughts..."
+            multiline
+            rows={4}
+            required
+            InputLabelProps={{ required: false }}
+            autoComplete="off"
+            onChange={(e) => setContentValue(e.target.value)}
+          />
             <Button type="submit" variant="contained">
               Save edit
             </Button>

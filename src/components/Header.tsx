@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useUser } from "./contexts/LoginContext";
-import Button from "@mui/material/Button";
 
 
 function Header() {
-  const {loggedInUser, isLoggedIn} = useUser()
-
-
-  // useEffect(() => {
-  //   async function getLogin() {
-  //     let response = await fetch('http://localhost:8080/login')
-  //     console.log(response)
-  //   }
-  //   getLogin()
-  // })
+  const {loggedInUser, isLoggedIn, signOut} = useUser()
 
   return (
     <div className="header-div">
@@ -36,7 +26,7 @@ function Header() {
       <div className="header-divs w-button">
         <h4 className="header-title">Logged in as: {loggedInUser.username}</h4> 
         <Link to="/">
-        <Button variant="contained">Logout</Button>
+        <Button onClick={signOut} variant="contained">Logout</Button>
         </Link>
       </div>
         : 

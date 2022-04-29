@@ -1,10 +1,11 @@
-import * as React from "react";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { UpdatePost } from "./UpdatePost";
+import * as React from "react";
 import { useUser } from "../contexts/LoginContext";
-import { DeletePost } from "../pappasTest/deletePost";
+import { DeletePost } from "../functions/deletePost";
+import { UpdatePost } from "./UpdatePost";
 
 const options = ["Edit", "Delete"];
 
@@ -26,7 +27,7 @@ function LongMenu(menu: menuProps) {
   };
 
   return (
-    <div className="DENNA ">
+    <div>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -35,7 +36,7 @@ function LongMenu(menu: menuProps) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <div className="delDots">•••</div>
+        <MoreVertIcon />
       </IconButton>
       <Menu
         id="long-menu"
